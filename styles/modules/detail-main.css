@@ -1,0 +1,21 @@
+.detailedView-title {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 2em;
+  }
+  
+  .detailedBook-container {
+    width: 50%;
+    margin: 0 auto;
+    color: rgb(84, 82, 77);
+  }
+  
+  .detailedBook-container img {
+    max-width: 100%;
+  }
+  
+  .book-description {
+    position: relative;
+    width: 100%;
+    margin-top:3.5vw;
+  }

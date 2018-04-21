@@ -1,7 +1,7 @@
 'use strict';
-if (window.location.protocol.startsWith('https:')) {
-  page.base('/books');
-}
+// if (window.location.protocol.startsWith('https:')) {
+//   page.base('/books');
+// }
 // This is where we define the client-side routes
 //routes for everything except valid routes
 page('/*', (ctx,next) => {
