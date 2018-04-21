@@ -17,7 +17,38 @@ var app = app || {};
     module.Book.one.map(book => $('#book-description').append(book.toDetailedHtml()));
     $('#detailed-view').show();
   }
-
+  bookView.initNewPage = function(){
+    //console.log('test');
+    $('.container').hide();
+    $('#book-view').hide();
+    $('#create-view').show();
+    $('#create-form').on('change', 'input, textarea', bookView.create);
+    $('#create-form').on('submit', bookView.submit);
+  }
+  bookView.create = function(){
+    $('#book-list').empty();
+    let book = new module.Book({
+      title: $('#book-title').val(),
+      author: $('#book-author').val(),
+      image_url: $('#book-image_url').val(),
+      isbn: $('#book-isbn').val(),
+      description: $('#text-area-book-description').val()
+    })
+    $('#book-list').append(book.toHtml());
+  }
+  bookView.submit = function(event) {
+    $('#book-list').empty();
+    event.preventDefault();
+    let book = new module.Book({
+      title: $('#book-title').val(),
+      author: $('#book-author').val(),
+      image_url: $('#book-image_url').val(),
+      isbn: $('#book-isbn').val(),
+      description: $('#text-area-book-description').val()
+    })
+    book.insert();
+    window.location = '../';
+  }
   module.bookView = bookView;
 })(app)
 

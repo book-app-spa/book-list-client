@@ -27,7 +27,12 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     let template = Handlebars.compile($('#book-detailedView-template').text());
     return template(this);
   }
-  
+
+  Book.prototype.insert =function(callback) {
+    $.post(`${ENV.apiUrl}/api/v1/books`,{author: this.author, title:this.title,isbn:this.isbn, image_url:this.image_url, description: this.description })
+      .then(callback);
+  }
+
   Book.all = [];
   Book.loadAll = rows => Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
   Book.one = [];
