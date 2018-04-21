@@ -5,8 +5,8 @@ var app = app || {};
 const ENV = {};
 
 ENV.isProduction = window.location.protocol === 'https:';
-ENV.productionApiUrl = 'insert cloud API server URL here';
-ENV.developmentApiUrl = 'insert local API server URL here';
+ENV.productionApiUrl = 'https://mr-tr-js-booklist.herokuapp.com';
+ENV.developmentApiUrl = 'http://localhost:5000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
 (function(module) {
@@ -23,14 +23,23 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     let template = Handlebars.compile($('#book-list-template').text());
     return template(this);
   }
-
+  Book.prototype.toDetailedHtml = function() {
+    let template = Handlebars.compile($('#book-detailedView-template').text());
+    return template(this);
+  }
+  
   Book.all = [];
   Book.loadAll = rows => Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
-
+  Book.one = [];
   Book.fetchAll = callback =>
-    $.get(`${ENV.apiUrl}/api/v1/books`)
+    $.getJSON(`${ENV.apiUrl}/api/v1/books`)
       .then(Book.loadAll)
       .then(callback)
+      .catch(errorCallback);
+
+  Book.fetchOne = (id) =>
+    $.getJSON(`${ENV.apiUrl}/api/v1/books/${id}`)
+      .then(results => Book.one = results.map(book => new Book(book)))
       .catch(errorCallback);
 
   module.Book = Book;
