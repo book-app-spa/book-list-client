@@ -5,7 +5,7 @@ var app = app || {};
 const ENV = {};
 
 ENV.isProduction = window.location.protocol === 'https:';
-ENV.productionApiUrl = 'https://mr-tr-js-booklist.herokuapp.com';
+ENV.productionApiUrl = 'https://mr-booklist.herokuapp.com';
 ENV.developmentApiUrl = 'http://localhost:5000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
