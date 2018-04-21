@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Books</title>
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/icons.css">
   <link rel="stylesheet" href="./styles/base.css">
   <link rel="stylesheet" href="./styles/layout.css">
   <link rel="stylesheet" href="./styles/modules/book-main.css">
+  <link rel="stylesheet" href="./styles/modules/detail-main.css">
 
   <!-- Application Templates -->
   <script type="text/x-handlebars-template" id="error-template">
@@ -29,11 +30,15 @@
   </script>
   <script type="text/x-handlebars-template" id="book-detailedView-template">
     <li class="book-description" data-bookid={{book_id}}>
-      <div>
+      <div class="detailedBook-container">
         <img src={{image_url}}>
-          <h3>{{title}}</h3>
-          <p>{{author}}</p>
-          <p>{{description}}</p>
+          <h3><b>Title:</b>{{title}}</h3>
+          <br>
+          <p><b>Author:</b>{{author}}</p>
+          <br>
+          <p><b>Description:</b>{{description}}</p>
+          <br>
+          <p><b>ISBN:</b>{{isbn}}</p>
       </div>
     </li>
   </script>
@@ -51,7 +56,7 @@
       <section id="error-message"></section>
     </section>
     <section id="book-view" class="container">
-      <h2 class="view-title">My Books</h2>
+      <h2 class="view-title">Book List</h2>
       <section class="book-list">
         <ul id="book-list"></ul>
       </section>
