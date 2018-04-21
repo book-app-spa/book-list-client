@@ -49,6 +49,13 @@
       <a href="/"><img src="http://www.bootcamps.in/wp-content/uploads/2015/06/code-fellows-shield.png" alt="logo"></a>
       <h1>My Books</h1>
     </div>
+    <nav class="main-nav">
+      <div class="icon-menu"></div>
+      <ul>
+        <li class="tab" data-content="books"><a href="/" class="icon-home"> Home</a></li>
+        <li class="tab" data-content="new"><a href="/books/new">New</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
     <section id = "error-view" class="container">
@@ -67,6 +74,26 @@
           <ul id="book-description"></ul>
         </section>
       </section>
+      <section id="create-view" class="container">
+        <h2 class="createView-title">Create page</h2>
+        <form id="create-form">
+          <label>
+            <input type="text" id="book-title" placeholder="book title" required>
+          </label>
+          <label>
+            <input type="text" id="book-author" placeholder="author name" required>
+          </label>
+          <label>
+            <input type="text" id="book-image_url" placeholder="Image URL" required>
+          </label>
+          <label>
+            <input type="text" id="book-isbn" placeholder="ISBN" required>
+          </label>
+          <textarea id="text-area-book-description" rows="8" cols="40" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+    </section>
+    
   </main>
   <footer>
     <aside class="social-links">
