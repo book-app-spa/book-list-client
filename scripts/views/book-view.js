@@ -49,6 +49,7 @@ var app = app || {};
     book.insert();
     $('#book-list').append(book.toHtml());
     //window.location = '../';
+    page('/');
   }
   module.bookView = bookView;
 })(app)
