@@ -12,6 +12,9 @@
   .main-nav:hover ul {
     display: block;
   }
+  .main-nav:active ul {
+    display: block;
+  }
   
   .main-nav li {
     margin-right: .4em;
