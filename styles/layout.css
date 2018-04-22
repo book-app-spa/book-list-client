@@ -1,3 +1,10 @@
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .header-content {
     position: relative;
   }
