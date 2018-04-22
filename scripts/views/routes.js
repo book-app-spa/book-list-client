@@ -1,8 +1,8 @@
 'use strict';
 // client-side routes
-if (window.location.protocol.startsWith('https:')) {
-  page.base('/books');
-}
+// if (window.location.protocol.startsWith('https:')) {
+//   page.base('/books');
+// }
 //routes for everything except valid routes
 page('/*', (ctx,next) => {
   $('.container').hide()
